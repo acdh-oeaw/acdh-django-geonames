@@ -59,6 +59,7 @@ setup(
     install_requires=[
         'acdh-django-vocabs>=0.1',
         'acdh_geonames_utils>=0.3.1',
+        'tqdm>=4.56.0'
     ],
     license="MIT",
     zip_safe=False,
