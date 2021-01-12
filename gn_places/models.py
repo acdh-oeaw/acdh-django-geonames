@@ -2,9 +2,6 @@
 
 from django.db import models
 from django.urls import reverse
-from django.contrib.gis.db.models import PointField
-from django.contrib.gis.geos import Point
-
 
 from vocabs.models import SkosConcept
 
@@ -26,7 +23,7 @@ class GeoNamesPlace(models.Model):
     legacy_id = models.CharField(
         max_length=300, blank=True,
         verbose_name="Legacy ID"
-        )
+    )
     gn_id = models.IntegerField(
         blank=True, null=True,
         verbose_name="GeoNames ID",
@@ -63,14 +60,14 @@ class GeoNamesPlace(models.Model):
         is_public=True,
         data_lookup="longitude",
     )
-    gn_point = PointField(
-        blank=True, null=True,
-        verbose_name="centroid",
-        help_text="Centroid of the place",
-    ).set_extra(
-        is_public=True,
-        arche_prop="hasWkt",
-    )
+    # gn_point = PointField(
+    #     blank=True, null=True,
+    #     verbose_name="centroid",
+    #     help_text="Centroid of the place",
+    # ).set_extra(
+    #     is_public=True,
+    #     arche_prop="hasWkt",
+    # )
     gn_feature_class = models.CharField(
         max_length=250,
         null=True,
@@ -149,9 +146,9 @@ class GeoNamesPlace(models.Model):
         blank=True,
         null=True,
         verbose_name="The original data"
-        ).set_extra(
-            is_public=True
-        )
+    ).set_extra(
+        is_public=True
+    )
 
     class Meta:
 
@@ -167,10 +164,11 @@ class GeoNamesPlace(models.Model):
             return "{}".format(self.legacy_id)
 
     def save(self, *args, **kwargs):
-        if self.gn_lat:
-            point = Point(self.gn_long, self.gn_lat, srid=4326)
-            self.gn_point = point
-
+        # if self.gn_lat:
+        #     point = Point(self.gn_long, self.gn_lat, srid=4326)
+        #     self.gn_point = point
+        if not self.legacy_id:
+            self.legacy_id = self.gn_id
         if not self.gn_feature:
             if self.gn_feature_class and self.gn_feature_code:
                 ft = ".".join((
@@ -190,10 +188,6 @@ class GeoNamesPlace(models.Model):
         return reverse(
             'gn_places:geonamesplace_browse'
         )
-
-    @classmethod
-    def get_source_table(self):
-        return "AL"
 
     @classmethod
     def get_natural_primary_key(self):
