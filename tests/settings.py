@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gn_places',
     'gn_places.test_utils.test_app',
+    'dal',
+    'dal_select2',
     'vocabs',
     'browsing',
 

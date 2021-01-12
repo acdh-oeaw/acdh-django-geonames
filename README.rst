@@ -8,6 +8,10 @@ GeoName Places
 .. image:: https://travis-ci.com/acdh-oeaw/acdh-django-geonames.svg?branch=master
     :target: https://travis-ci.com/acdh-oeaw/acdh-django-geonames
 
+.. image:: https://readthedocs.org/projects/geonames-utils/badge/?version=latest
+    :target: https://geonames-utils.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
 .. image:: https://codecov.io/gh/acdh-oeaw/acdh-django-geonames/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/acdh-oeaw/acdh-django-geonames
 

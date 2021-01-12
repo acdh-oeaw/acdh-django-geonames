@@ -7,4 +7,8 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('gn_places.urls', namespace='gn_places')),
+    url(
+        r'^gn-places-ac/',
+        include('gn_places.dal_urls', namespace='gn_places-ac')
+    ),
 ]
