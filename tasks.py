@@ -100,7 +100,7 @@ def release(c, bumpsize=''):
 
     c.run("bumpversion {bump} --no-input".format(bump=bumpsize))
 
-    import acdh_django_geonames
+    import gn_places
     # c.run("python setup.py sdist bdist_wheel")
     # c.run("twine upload dist/*")
 
