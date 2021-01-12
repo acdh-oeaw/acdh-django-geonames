@@ -1,17 +1,10 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
 
 python:
-  - "3.6"
+  - "3.8"
 
-env: 
-  - TOX_ENV=py36-django-111
-  - TOX_ENV=py35-django-111
-  - TOX_ENV=py27-django-111
-  - TOX_ENV=py37-django-21
-  - TOX_ENV=py36-django-21
-  - TOX_ENV=py35-django-21
+env:
+  - TOX_ENV=py38-django-31
 
 matrix:
   fast_finish: true
