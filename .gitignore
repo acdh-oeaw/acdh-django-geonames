@@ -47,10 +47,11 @@ output/*/index.html
 docs/_build
 
 # envs
-
 env
 
 
 # vscode
-
 .vscode
+
+#dbs
+*.sqlite3
