@@ -16,5 +16,16 @@ install:
 # command to run tests using coverage, e.g. python setup.py test
 script: tox -e $TOX_ENV
 
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: csae8092
+  password:
+    secure: pxFphK8nhCZ9m+OoXCWekFm1Ly5QAkaHcte1PqEq08EOKL3OI/T/Gj+2GLlRP9MORMYSl7zE0OHL5mQ89syWcMp8JgBklgmt7U+9MJcxuLNDpfkkNaPQQTxqdHLqYZOGieEuaWUaC44CyqBSI0xqR9I6YPnbrJxma3xdCVDeNKtQ1AZwttpT2735F8ucOGUy9HgRUBbg6bKjFNr0QjuJZVfnpV6Qb9bNMcQ90VGDiHhXJrZq9maRk35RIJxCbJNXscnpOZPyt6B5gRZvgY1XBiCKoFlhvZ+7NLaVdAwhV7pSRJHTAcVBoZeO7006hw80V2o03+v5nek+vgotZgy2sgvcUoi45vArAFIQ3Rtf1YlMaOj24kJVS/3UchCpU/SK32jaG5StGfhDLplMWzGhsPQlvTsNZ7iOsufquoTsuK0y9V6SNJvTmDjmCVaYVe+pf85dCmzR4rbC+P062B9fQeThQ/ysZEfl2cNbHbwDlV3h893GPgnnsC2BUJWJy39GK2jVvXFNccAV0lA5l5vlldRHfkkHfZBBljE46xO3WVhIW/MjkZ3GHV2XVSL56JuUUvwkBMHmA16alge4UghljN0cjGcVYqDA98q7ad1R7JBB1+9fjMoUCSFzVr5P9ziImT5CNkL0CeELU8mzST7rrxJHojTSxABcZokNRzIuIhA=
+  on:
+    tags: true
+    repo: acdh-oeaw/acdh-django-geonames
+    python: 3.8
+
 after_success:
   - codecov -e TOX_ENV

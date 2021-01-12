@@ -5,8 +5,8 @@ GeoName Places
 .. image:: https://badge.fury.io/py/acdh-django-geonames.svg
     :target: https://badge.fury.io/py/acdh-django-geonames
 
-.. image:: https://travis-ci.org/acdh-oeaw/acdh-django-geonames.svg?branch=master
-    :target: https://travis-ci.org/acdh-oeaw/acdh-django-geonames
+.. image:: https://travis-ci.com/acdh-oeaw/acdh-django-geonames.svg?branch=master
+    :target: https://travis-ci.com/acdh-oeaw/acdh-django-geonames
 
 .. image:: https://codecov.io/gh/acdh-oeaw/acdh-django-geonames/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/acdh-oeaw/acdh-django-geonames
