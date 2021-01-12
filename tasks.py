@@ -101,8 +101,8 @@ def release(c, bumpsize=''):
     c.run("bumpversion {bump} --no-input".format(bump=bumpsize))
 
     import acdh_django_geonames
-    c.run("python setup.py sdist bdist_wheel")
-    c.run("twine upload dist/*")
+    # c.run("python setup.py sdist bdist_wheel")
+    # c.run("twine upload dist/*")
 
     c.run('git tag -a {version} -m "New version: {version}"'.format(version=acdh_django_geonames.__version__))
     c.run("git push --tags")
