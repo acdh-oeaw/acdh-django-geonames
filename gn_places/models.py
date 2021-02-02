@@ -183,57 +183,13 @@ class GeoNamesPlace(models.Model):
     def field_dict(self):
         return model_to_dict(self)
 
-    @classmethod
-    def get_listview_url(self):
-        return reverse(
-            'gn_places:geonamesplace_browse'
-        )
 
     @classmethod
     def get_natural_primary_key(self):
         return "gn_id"
-
-    @classmethod
-    def get_createview_url(self):
-        return reverse(
-            'gn_places:geonamesplace_create'
-        )
 
     def get_geonames_url(self):
         return f"{GN_HTML_URL}{self.gn_id}"
 
     def get_geonames_rdf(self):
         return f"{GN_HTML_URL}{self.gn_id}/about.rdf"
-
-    def get_absolute_url(self):
-        return reverse(
-            'gn_places:geonamesplace_detail', kwargs={'pk': self.id}
-        )
-
-    def get_delete_url(self):
-        return reverse(
-            'gn_places:geonamesplace_delete', kwargs={'pk': self.id}
-        )
-
-    def get_edit_url(self):
-        return reverse(
-            'gn_places:geonamesplace_edit', kwargs={'pk': self.id}
-        )
-
-    def get_next(self):
-        next = self.__class__.objects.filter(id__gt=self.id)
-        if next:
-            return reverse(
-                'gn_places:geonamesplace_detail',
-                kwargs={'pk': next.first().id}
-            )
-        return False
-
-    def get_prev(self):
-        prev = self.__class__.objects.filter(id__lt=self.id).order_by('-id')
-        if prev:
-            return reverse(
-                'gn_places:geonamesplace_detail',
-                kwargs={'pk': prev.first().id}
-            )
-        return False
