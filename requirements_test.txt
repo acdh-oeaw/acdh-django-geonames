@@ -4,6 +4,6 @@ flake8>=2.1.0
 tox>=1.7.0
 codecov>=2.0.0
 acdh-django-vocabs>=0.1.3
-acdh-geonames-utils>=0.3
+acdh-geonames-utils>=0.5
 
 # Additional test requirements go here
