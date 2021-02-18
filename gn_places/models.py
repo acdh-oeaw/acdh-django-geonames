@@ -158,7 +158,10 @@ class GeoNamesPlace(models.Model):
 
     def __str__(self):
         if self.gn_name:
-            return "{}".format(self.gn_name)
+            if self.gn_country_code and self.gn_feature_code:
+                return f"{self.gn_name} ({self.gn_country_code}; {self.gn_feature_code})"
+            else:
+                return f"{self.gn_name}"
         else:
             return "{}".format(self.legacy_id)
 

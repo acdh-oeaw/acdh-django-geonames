@@ -13,6 +13,7 @@ TEST_PLACE = {
     "gn_name": "Linz",
     "gn_feature_class": "P",
     "gn_feature_code": "PPLA",
+    "gn_country_code": "AT"
 }
 
 TEST_PLACE_FAULTY = {

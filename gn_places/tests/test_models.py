@@ -9,7 +9,7 @@ from gn_places.models import GeoNamesPlace
 from vocabs.models import SkosConceptScheme, SkosConcept
 
 
-class ConceptSchemeTest(TestCase):
+class GeoNamesPlaceTest(TestCase):
     """ Test module for SkosConceptScheme model """
 
     def setUp(self):
@@ -39,10 +39,18 @@ class ConceptSchemeTest(TestCase):
         self.faulty_pl.save()
         gn_feature = self.place.gn_feature
         self.assertEqual(gn_feature, self.concept)
-        self.assertEqual(f"{self.place}", TEST_PLACE['gn_name'])
+        self.assertEqual(f"{self.place.gn_name}", f"{TEST_PLACE['gn_name']}")
         self.assertEqual(f"{self.faulty_pl}", f"{TEST_PLACE_FAULTY['gn_id']}")
         self.assertEqual(self.place.get_geonames_url(), f"https://sws.geonames.org/{self.place.gn_id}")
         self.assertEqual(
             self.faulty_pl.get_geonames_rdf(),
             f"https://sws.geonames.org/{self.faulty_pl.gn_id}/about.rdf"
+        )
+
+    def test_004_place__str__(self):
+        """ tests the places's str method """
+        print(f"{self.place}")
+        self.assertEqual(
+            f"{self.place}",
+            f"{TEST_PLACE['gn_name']} ({TEST_PLACE['gn_country_code']}; {TEST_PLACE['gn_feature_code']})"
         )
